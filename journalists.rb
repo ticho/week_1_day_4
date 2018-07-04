@@ -24,5 +24,6 @@ puts ""
 sorted_journalists = journalists.sort_by do |item|
   item.downcase
 end
-puts "Liste des handles par ordre alphabétique :"
+puts "Liste des handles par ordre alphabétique : (Appuyez sur Entrer)"
+gets
 puts sorted_journalists
