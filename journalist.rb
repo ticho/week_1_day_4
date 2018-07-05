@@ -11,8 +11,8 @@ underscore = 0
 for handle in journalists
   number_in_handle += 1 if handle.count("0-9") > 0
   # change this line if you want to include all lowercase "aude"
-  aude_in_handle += 1 if handle.include? "Aude"
-  # aude_in_handle += 1 if handle.downcase.include? "aude"
+  # aude_in_handle += 1 if handle.include? "Aude"
+  aude_in_handle += 1 if handle.downcase.include? "aude"
   capitalized += 1 if  /[A-Z]/.match(handle[1])
   uppercase += 1 if /[A-Z]/.match(handle)
   underscore += handle.count("_")

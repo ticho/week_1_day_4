@@ -32,4 +32,18 @@ puts "Il y a #{coin_count} cryptos qui contiennent le mot 'coin'"
 
 under_6000 = {}
 for item in my_hash
-  if item.value
+  if item[1].tr('$', '').to_f < 6000
+    under_6000[item[0]] = item[1]
+  end
+end
+
+puts "Il y a #{under_6000.length} crypto monnaies dont le cours est inferieur à 6000$"
+puts "Appuyez sur Entrer pour voir la liste"
+gets
+# puts under_6000
+print under_6000.keys
+puts
+
+max_value_under_6000 = under_6000.max_by{|k, v| v.tr('$', '').to_f}
+puts
+puts "La crypto qui a la plus grosse valeur en dessous de 6000$ est #{max_value_under_6000[0]}  avec  #{max_value_under_6000[1]}"
