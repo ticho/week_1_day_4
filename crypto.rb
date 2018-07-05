@@ -20,9 +20,15 @@ end
 max_value = my_hash.max_by{|k, v| v.tr('$', '').to_f}
 puts "La crypto qui a la plus grosse valeur est " + max_value[0] + " avec " + max_value[1]
 
-min_value = my_hash.min_by{|k, v| v.tr('$', '').to_f}
-# min_value = my_hash.min_by{|k, v| v.tr('$', '').to_f if Float(v.tr('$', '')) != nil rescue false}
-puts min_value
+# min_value = my_hash.min_by{|k, v| v.tr('$', '').to_f}
+clean_hash = {}
+my_hash.each do |k, v|
+  if v.tr('$', '').match(/^\d+\.\d+$/)
+    clean_hash[k] = v
+  end
+end
+min_value = clean_hash.min_by{|k, v| v.to_s.tr('$', '').to_f}
+puts "La crypto qui a la plus petite valeur est #{min_value[0]} avec #{min_value[1]}"
 
 coin_count = 0
 my_hash.each do |k, v|
