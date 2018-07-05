@@ -13,12 +13,12 @@ for handle in journalists
   # change this line if you want to include all lowercase "aude"
   # aude_in_handle += 1 if handle.include? "Aude"
   aude_in_handle += 1 if handle.downcase.include? "aude"
-  capitalized += 1 if  /[A-Z]/.match(handle[1])
-  uppercase += 1 if /[A-Z]/.match(handle)
+  capitalized += 1 if handle[1].count("A-Z") > 0  # or /[A-Z]/.match(handle[1])
+  uppercase += 1 if handle.count("A-Z") > 0 #  or /[A-Z]/.match(handle)
   underscore += handle.count("_")
 end
 puts number_in_handle.to_s + " handles contiennent un numéro."
-puts "Il y a " + aude_in_handle.to_s + " Aude(s) dans cet array."
+puts "Il y a " + aude_in_handle.to_s + " fois 'aude' dans cet array."
 puts capitalized.to_s + " handles commencent par une majuscule."
 puts uppercase.to_s + " handles contiennent une majuscule."
 puts "Il y a " + underscore.to_s + " _ au total."
