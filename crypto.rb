@@ -32,7 +32,7 @@ puts "La crypto qui a la plus petite valeur est #{min_value[0]} avec #{min_value
 
 coin_count = 0
 my_hash.each do |k, v|
-  coin_count += 1 if k.include? 'coin'
+  coin_count += 1 if k.downcase.include? 'coin'
 end
 puts "Il y a #{coin_count} cryptos qui contiennent le mot 'coin'"
 
